@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-myselectshop
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DOCKER_DB_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DOCKER_DB_MYSQL_DATABASE}
+    ports:
+      - ${DOCKER_DB_PORTS}
+    volumes:
+      - ./db:/var/lib/mysql
